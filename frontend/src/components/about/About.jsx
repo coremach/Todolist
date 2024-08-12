@@ -11,7 +11,7 @@ const About = () => {
 
                 </div>
                 <p>
-                    Welcome to our To-Do App, your ultimate productivity companion! Designed for simplicity and efficiency, our app helps you manage your tasks seamlessly. Whether you’re juggling personal projects, professional responsibilities, or daily errands, our intuitive interface makes it easy to stay organized and focused.
+                    Welcome to our To-Do app, your ultimate productivity companion! Designed for simplicity and efficiency, our app helps you manage your tasks seamlessly. Whether you’re juggling personal projects, professional responsibilities, or daily errands, our intuitive interface makes it easy to stay organized and focused.
                 </p>
 
                 <h3>
