@@ -1,0 +1,68 @@
+.todocards {
+    border: 2px solid red;
+    width: 50%;
+}
+
+.todocards-p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+
+.cards-i {
+    border-radius: 10px;
+    padding: 0px 5px;
+    box-shadow: rgba(0, 0, 0, .35) 0px 5px 15px;
+    /* border: 2px solid rgb(1, 83, 234); */
+}
+
+.card-icons {
+    font-size: 13px;
+    margin: 1px 4px 4px 1px;
+    /* border: 2px solid red; */
+}
+
+.del {
+    color: red;
+    font-size: 18px;
+    margin: 1px 2px 2px 1px;
+}
+
+
+span {
+    /* padding:1px 3px 2px 0px; */
+    color: rgb(69, 62, 62);
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.c-u:hover{
+    background-color: rgb(21, 151, 16);
+    color: antiquewhite;
+    box-shadow: rgba(0, 0, 0, 0.702) 5px 5px 15px;
+
+    
+}
+
+.c-d:hover{
+    background-color: rgb(236, 23, 23);
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.702) 5px 5px 15px;
+
+    
+}
+.c-d:hover .del{
+    color: rgb(247, 214, 204);
+    
+}
+.c-d:hover span{
+    color: rgb(255, 255, 255);
+    
+    
+}
+.c-u:hover span{
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+
+}
+

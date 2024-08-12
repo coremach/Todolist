@@ -1,0 +1,43 @@
+.cross{
+    position: absolute;
+    background-color: rgb(232, 132, 132);
+    color: rgb(23, 23, 20);
+    border-radius: 50%;
+    right: 50px;
+    top: 5px;
+    width: 45px;
+    height: 45px;
+    font-size: 25px;
+    cursor: pointer;
+    animation: anti-clock 2s infinite linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 2px ;
+    margin: 3;
+    
+}
+
+@keyframes anti-clock{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(-720deg);
+    }
+    
+}
+.cross:hover{
+    background-color: rgb(131, 216, 65);
+    color: rgb(237, 237, 226);
+    animation: rot 2s infinite linear;
+} 
+@keyframes rot{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(720deg);
+    }
+}
