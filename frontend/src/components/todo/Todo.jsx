@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import './Todo.css'
 import './update.css'
 import TodoCards from './TodoCards'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import Update from './Update';
-import { useDispatch } from 'react-redux';
-import { authActions } from "../../store/index";
+// import { useDispatch } from 'react-redux';
+// import { authActions } from "../../store/index";
 import axios from 'axios';
+let toUpdateArray = []
 let id = sessionStorage.getItem('id')
 
 
@@ -15,15 +16,7 @@ let id = sessionStorage.getItem('id')
 const Todo = () => {
     const [Inputs, setInputs] = useState({ title: "", body: "" })
     const [Array, setArray] = useState([])
-    const [id, setId] = useState(null);
-    
-    useEffect(() => {
-        // Retrieve the user ID from session storage
-        const storedId = sessionStorage.getItem('id');
-        if (storedId) {
-            setId(storedId);
-        }
-    }, []); // Run only on mount
+
 
     const show = () => {
         document.getElementById('textarea').style.display = "block";
@@ -32,7 +25,7 @@ const Todo = () => {
         const { name, value } = e.target;
         setInputs({ ...Inputs, [name]: value });
     }
-    const Submit = async () => {
+    const Submit = useCallback(async () => {
         if (Inputs.title === "" && Inputs.body === "") {
             toast.error("Title Or Body should not by Empty")
         }
@@ -43,9 +36,9 @@ const Todo = () => {
                     body: Inputs.body,
                     id: id
                 })
-                    .then((response) => {
-                        console.log(response);
-                    })
+                    // .then((response) => {
+                    //     console.log(response);
+                    // })
                 setInputs({ title: "", body: "" })
                 toast.success(`${Inputs.title} is added successfully 💘`)
             } else {
@@ -57,28 +50,18 @@ const Todo = () => {
             }
 
         }
-    }
+
+
+    }, [Array,Inputs]);
+
     const del = async (task_id) => {
         if (id) {
-
-            console.log({ task_id: task_id, id: id })
-
-                // await fetch(`http://localhost:3001/api/v2/deleteTask/${task_id}`, {
-                    //     data: { id:id },
-                    //     method: 'DELETE',
-                    //     })
-                    //     .then((response) => {
-                        //         console.log(response)
-                        //         toast.success(`Task is Deleted successfully 💔`)
-                        //     })
-                        //     .catch(err => console.log(err)
-                        //     )
             await axios
                 .delete(`http://localhost:3001/api/v2/deleteTask/${task_id}`, {
                     data: { id: id }
                 })
-                .then((res) => {
-                    console.log(res);
+                .then(() => {
+                    toast.success("Task is deleted 💔")
                 })
                 .catch(err => console.log(err)
                 )
@@ -95,26 +78,27 @@ const Todo = () => {
         document.getElementById("todo-update").style.display = value;
     }
 
+    const update = (value) => {
+        toUpdateArray = Array[value];
 
+    }
 
 
     useEffect(() => {
         const fetchTasks = async () => {
-            if (!id) {
-                console.error('ID is null or undefined');
-                return;
-            }
-            try {
-                const response = await axios.get(`http://localhost:3001/api/v2/getTasks/${id}`);
-                setArray(response.data.list);
-            } catch (error) {
-                console.error('Error fetching tasks:', error);
+            if (id) {
+                try {
+                    const response = await axios.get(`http://localhost:3001/api/v2/getTasks/${id}`);
+                    setArray(response.data.list);
+                } catch (error) {
+                    console.error('Error fetching tasks:', error);
+                }
             }
         };
-    
+
         fetchTasks();
-    }, [ id,Submit]);
-    
+    }, [Submit]);
+
     // useEffect(() => {
     //     const fetch = async () => {
     //         await axios
@@ -171,6 +155,8 @@ const Todo = () => {
                                             id={item._id}
                                             del_id={del}
                                             display={updateShow}
+                                            updateId={index}
+                                            toBeUpdate={update}
                                         />
                                     </div>
                                 </>
@@ -182,7 +168,7 @@ const Todo = () => {
             </div>
             <div className="todo-update mx-4" id='todo-update'>
                 <div className="container update " >
-                    <Update display={updateShow} />
+                    <Update display={updateShow} update={toUpdateArray} />
                 </div>
 
             </div>

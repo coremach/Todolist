@@ -46,7 +46,6 @@ const SignIn = () => {
         history('/todo');
         const getId = sessionStorage.getItem('id')
         dispatch(authActions.login())
-        console.log("id : ",getId);
       }
     } catch (error) {
       console.error(error.message);

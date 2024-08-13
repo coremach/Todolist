@@ -26,11 +26,12 @@ router.post('/addTask', async (req, res) => {
 // Task update
 router.put("/updateTask/:id", async (req, res) => {
     try {
-        const { title, body, email } = req.body;
-        const existingUser = await User.findOne({ email });
+        const {user_Id ,task_Id,title,body} = req.body.data
+
+        const existingUser = await User.findByIdAndUpdate(user_Id);        
 
         if (existingUser) {
-            const list = await List.findByIdAndUpdate(req.params.id, { title, body });
+            const list = await List.findByIdAndUpdate(task_Id, { title, body });
             list.save().then(() => res.status(200).json({ message: "Task updated" }))
         } else {
             res.status(404).json({ message: "user dont exist" })
@@ -46,8 +47,6 @@ router.put("/updateTask/:id", async (req, res) => {
 router.delete('/deleteTask/:id', async (req, res) => {
     try {
         const { id } = req.body;
-        console.log({user_id:req.body,task_id:id});
-        
         const existingUser = await User.findByIdAndUpdate(
             id, 
             { $pull: { list: req.params.id } }

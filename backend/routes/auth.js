@@ -8,7 +8,7 @@ router.post('/signin', async (req, res) => {
     try {
       const { email, password } = req.body;
   
-      console.log('Received login request:', { email, password });
+      // console.log('Received login request:', { email, password });
   
       // Check if the email is provided
       if (!email) {
@@ -60,9 +60,9 @@ router.post("/register", async (req, res) => {
         const user = new User({ email, username, password:hashpassword });
 
         await user.save().then(() => res.status(200).json({ message:"Sign Up Successfull !!!" }));
-        console.log("resgister work", new Date())
+        console.log("Resgister/Signup Successfull", new Date())
     } catch (e) {
-        // console.log(e);
+
         res.status(200).json({ message: "User Already Exist" });
     }
 });

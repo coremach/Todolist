@@ -13,7 +13,6 @@ const Navbar = () => {
         sessionStorage.clear("id")
         dispatch(authActions.logout());
     }
-    console.log(isLoggedIn);
     return <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container">
