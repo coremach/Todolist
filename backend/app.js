@@ -4,7 +4,10 @@ const cors = require('cors')
 // mongodb connect
 require('./conn/conn')
 
-const { PORT } = require("./config");
+require('dotenv').config()
+const PORT = process.env.PORT || 4000
+
+
 const auth = require('./routes/auth')
 const list = require('./routes/list')
 
@@ -17,7 +20,10 @@ app.use("/api/v1",auth)
 app.use("/api/v2",list)
 
 app.get('/',(req,res)=>{
-    res.send("hello from ghghhhjkjjjh app.put")
+    const city="Londan";
+    const country="England";
+    const temp=24;
+    res.send("<h1>Hello, The temperature in "+city+", "+country+" is "+temp+"</h1>");
 })
 
 app.listen(PORT,()=>{

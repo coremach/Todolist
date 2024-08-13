@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
-const { mongoDB_URL } = require("../config")
+require('dotenv').config()
 
 
 const conn = async (req,res) => {
-    await mongoose.connect(mongoDB_URL)
+    await mongoose.connect(process.env.mongoDB_URL)
     .then(()=>{
         console.log(`Database connected successfully`)
     })
