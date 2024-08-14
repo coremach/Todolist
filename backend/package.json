@@ -4,7 +4,6 @@
   "description": "TodoApp server",
   "main": "app.js",
   "scripts": {
-    "build": "build --output public",
     "start": "nodemon app.js"
   },
   "keywords": [],
