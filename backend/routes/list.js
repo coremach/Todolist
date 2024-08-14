@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const User = require('../modals/user')
-const List = require('../modals/list')
+const User = require('../modals/user');
+const List = require('../modals/list');
 
 // Task create
 router.post('/addTask', async (req, res) => {

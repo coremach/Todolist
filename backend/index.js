@@ -1,15 +1,15 @@
-const express = require("express");
-const app  = express();
+const express = require( "express")
 const cors = require('cors')
-// mongodb connect
-require('./conn/conn')
+require('./conn/conn.js')
+// // mongodb connect
+require('dotenv/config')
 
-require('dotenv').config()
+const auth = require('./routes/auth'); 
+const list = require('./routes/list'); 
+
+const app  = express();
 const PORT = process.env.PORT || 4000
-
-
-const auth = require('./routes/auth')
-const list = require('./routes/list')
+// conn();
 
 
 app.use(express.json());
