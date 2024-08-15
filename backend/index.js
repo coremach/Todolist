@@ -6,14 +6,17 @@ require('dotenv/config')
 
 const auth = require('./routes/auth'); 
 const list = require('./routes/list'); 
+const PORT = process.env.PORT || 4000
 
 const app  = express();
-const PORT = process.env.PORT || 4000
-// conn();
-
+const cors_pol ={
+    origin:["https://deploy-mern-lwhq.vercel.app","http://localhost:3000"],
+    methods:["POST","GET","DELETE","PUT"],
+    credentials:true
+}
+app.use(cors(cors_pol));
 
 app.use(express.json());
-app.use(cors());
 
 
 app.use("/api/v1",auth)

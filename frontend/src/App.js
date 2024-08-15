@@ -20,9 +20,7 @@ const App = () => {
 
       dispatch(authActions.login());
     }
-
-
-  }, [])
+  })
 
 
   return <>

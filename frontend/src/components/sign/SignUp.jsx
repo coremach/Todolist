@@ -3,6 +3,9 @@ import './SignUp.css'
 import HeadingComp from './HeadingComp'
 import axios from 'axios'
 import { useNavigate} from 'react-router-dom'
+import env from 'react-dotenv'
+const url = env.REACT_APP_BASE_URL+"/api/v1/register";
+
 
 const SignUp = () => {
   const history = useNavigate();
@@ -16,7 +19,6 @@ const SignUp = () => {
     setInputs({ ...Inputs, [name]: value })
   }
 
-  const url = "http://localhost:3001/api/v1/register";
   const Submit = async (e) => {
     e.preventDefault();
     const { email, username, password } = Inputs

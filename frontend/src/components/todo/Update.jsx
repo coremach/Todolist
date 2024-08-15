@@ -3,6 +3,7 @@ import './update.css'
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { ImCross } from "react-icons/im";
+import env from 'react-dotenv'
 const id = sessionStorage.getItem('id')
 
 const Update = ({ display, update, }) => {
@@ -25,7 +26,7 @@ const Update = ({ display, update, }) => {
   const Submit = async () => {
     if (id) {
       await axios
-        .put(`http://localhost:3001/api/v2/updateTask/${update._id}`, {
+        .put(`${env.REACT_APP_BASE_URL}+"/api/v2/updateTask/${update._id}`, {
           data: {
             user_Id: id,
             task_Id: update._id,

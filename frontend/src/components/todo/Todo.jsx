@@ -8,6 +8,8 @@ import Update from './Update';
 // import { useDispatch } from 'react-redux';
 // import { authActions } from "../../store/index";
 import axios from 'axios';
+import env from 'react-dotenv'
+
 let toUpdateArray = []
 let id = sessionStorage.getItem('id')
 
@@ -31,7 +33,7 @@ const Todo = () => {
         }
         else {
             if (id) {
-                await axios.post('http://localhost:3001/api/v2/addTask', {
+                await axios.post(`${env.REACT_APP_BASE_URL}+"/api/v2/addTask`, {
                     title: Inputs.title,
                     body: Inputs.body,
                     id: id
@@ -57,7 +59,7 @@ const Todo = () => {
     const del = async (task_id) => {
         if (id) {
             await axios
-                .delete(`http://localhost:3001/api/v2/deleteTask/${task_id}`, {
+                .delete(`${env.REACT_APP_BASE_URL}+"/api/v2/deleteTask/${task_id}`, {
                     data: { id: id }
                 })
                 .then(() => {
@@ -88,7 +90,7 @@ const Todo = () => {
         const fetchTasks = async () => {
             if (id) {
                 try {
-                    const response = await axios.get(`http://localhost:3001/api/v2/getTasks/${id}`);
+                    const response = await axios.get(`${env.REACT_APP_BASE_URL}+"/api/v2/getTasks/${id}`);
                     setArray(response.data.list);
                 } catch (error) {
                     console.error('Error fetching tasks:', error);
@@ -102,7 +104,7 @@ const Todo = () => {
     // useEffect(() => {
     //     const fetch = async () => {
     //         await axios
-    //             .get(`http://localhost:3001/api/v2/getTasks/${id}`)
+    //             .get(`${env.REACT_APP_BASE_URL}+"/api/v2/getTasks/${id}`)
     //             .then((response) => {
     //                 setArray(response.data.list);
     //             })

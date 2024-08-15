@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { authActions } from "../../store/index";
+import env from "react-dotenv"
 
 const SignIn = () => {
   const dispatch= useDispatch()
@@ -19,7 +20,8 @@ const SignIn = () => {
     setInputs({ ...Inputs, [name]: value })
   }
 
-  const url = "http://localhost:3001/api/v1/signin";
+  const url = env.REACT_APP_BASE_URL+"/api/v1/signin";
+console.log(url);
 
   const Submit = async (e) => {
     e.preventDefault();
@@ -44,7 +46,7 @@ const SignIn = () => {
         // Navigate to todo page on successful login
         sessionStorage.setItem('id', response.data.others._id);
         history('/todo');
-        const getId = sessionStorage.getItem('id')
+        // const getId = sessionStorage.getItem('id')
         dispatch(authActions.login())
       }
     } catch (error) {
