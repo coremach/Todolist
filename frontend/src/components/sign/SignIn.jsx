@@ -74,58 +74,6 @@ const SignIn = () => {
     }
   }
 
-
-  // const Submit = async (e) => {
-  //   e.preventDefault();
-  //   const { email, password } = Inputs
-  //   if (!email || !password) {
-  //     return console.log("All Fields are required!!!");
-  //   }
-  //   await axios.post(url, Inputs)
-  //   .then(response => {
-  //       if (response.request.status === 200) {
-  //         console.log(response);
-  //         alert(response.data.message);
-  //         setInputs({
-  //           email: "",
-  //           password: "",})
-  //         history("/todo")
-  //       } else if(response.request.status === 401) {
-  //         // alert(response);
-  //         console.log(response);
-
-  //         setInputs({
-  //           // email: "",
-  //           // username: "",
-  //           password: "",
-  //         })
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.error(error);
-  //       if (error.response) {
-  //         // Server responded with a status other than 2xx
-  //         if (error.response.status === 400) {
-  //           console.error(error.response.data.message || "Bad Request");
-  //         } else if(error.response.data.status === 401) {
-  //           console.error( error.response.data.message||"Please Sign Up First")
-  //           history('/signup')
-  //         }else{
-  //           console.error(`Error: ${error.response.status}`);
-  //         }
-  //       } else if (error.request) {
-  //         // Request was made but no response received
-  //         console.error("No response received from server");
-  //       } else {
-  //         // Something else happened while setting up the request
-  //         console.error("Error in setting up request");
-  //       }
-  //     })
-  //   }
-
-
-
-
   return (
     <div className='signin'><div className="container">
       <div className="row">

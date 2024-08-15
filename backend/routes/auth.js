@@ -56,8 +56,8 @@ router.post("/register", async (req, res) => {
         // if(existingUser){
         //     return res.status(400).json({message : "User already exists !!!"})
         // }
-        const hashpassword = bcrypt.hashSync(password);
-        const user = new User({ email, username, password:hashpassword });
+        // const hashpassword = bcrypt.hashSync(password);
+        const user = new User({ email, username, password:password });
 
         await user.save().then(() => res.status(200).json({ message:"Sign Up Successfull !!!" }));
         console.log("Resgister/Signup Successfull", new Date())
