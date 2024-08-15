@@ -9,10 +9,10 @@ import env from "react-dotenv";
 const url = env.REACT_APP_BASE_URL + "/api/v1/signin";
 
 console.log({ 
-  server: process.env.REACT_APP_API_URL, 
-  local: process.env.REACT_APP_BASE_URL, 
+  local: process.env.REACT_APP_API_URL, 
+  server: process.env.REACT_APP_BASE_URL, 
   port: process.env.REACT_APP_BASE_PORT,
-  KEY:  env.KEY
+  url
 });
 
 const SignIn = () => {

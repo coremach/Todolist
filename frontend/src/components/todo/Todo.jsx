@@ -87,7 +87,7 @@ const Todo = () => {
         const fetchTasks = async () => {
             if (id) {
                 try {
-                    const response = await axios.get(`https://server-phi-ashy-63.vercel.app/api/v2/getTasks/${id}`);
+                    const response = await axios.get(`${env.REACT_APP_BASE_URL}+/api/v2/getTasks/${id}`);
                     setArray(response.data.list);
                 } catch (error) {
                     console.error('Error fetching tasks:', error);
