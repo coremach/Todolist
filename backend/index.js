@@ -16,6 +16,7 @@ const cors_pol ={
         "http://localhost:3000"
     ],
     methods:["POST","GET","DELETE","PUT"],
+    allowedHeaders: ['Content-Type'],
     credentials:true
 }
 app.use(cors(cors_pol));
