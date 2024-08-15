@@ -1,14 +1,9 @@
-
-
-/* .signup{
-    /* border: 2px solid rgb(193, 87, 87); */
-/* } */ */
 .column{
     height: 100vh;
 }
 .sign-up-heading{
     font-size: 100px;
-    /* font-weight: larger; */
+    
     color: rgba(240, 0, 0,.80);
     opacity: 0.8;
 
@@ -28,10 +23,5 @@
 }
 .btn-signup:hover{
     background-color: rgba(52, 201, 15, 0.8);
-    /* border: 2px solid red; */
-    /* color: white;
-    text-align: center;
-    font-weight: 500;
-    outline: none;
-    border:  none; */
+ 
 }

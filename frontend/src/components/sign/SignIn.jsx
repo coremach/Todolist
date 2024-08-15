@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import HeadingComp from './HeadingComp'
-import './SignIn.css'
+
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
