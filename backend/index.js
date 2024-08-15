@@ -10,11 +10,11 @@ const PORT = process.env.PORT || 4000
 
 const app  = express();
 const cors_pol ={
-    origin:["https://deploy-mern-lwhq.vercel.app","http://localhost:3000"],
+    origin:["https://deploy-mern-lwhq.vercel.app","http://server-phi-ashy-63.vercel.app","http://localhost:3000"],
     methods:["POST","GET","DELETE","PUT"],
     credentials:true
 }
-app.use(cors(cors_pol));
+app.use(cors());
 
 app.use(express.json());
 

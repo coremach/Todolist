@@ -3,12 +3,18 @@ import HeadingComp from './HeadingComp'
 import './SignIn.css'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { authActions } from "../../store/index";
 import env from "react-dotenv"
+console.log({ 
+  server: process.env.REACT_APP_API_URL, 
+  local: process.env.REACT_APP_BASE_URL, 
+  port: process.env.REACT_APP_BASE_PORT,
+  KEY:  env.KEY
+});
 
 const SignIn = () => {
-  const dispatch= useDispatch()
+  const dispatch = useDispatch()
   const history = useNavigate();
   const [Inputs, setInputs] = useState({
     email: "",
@@ -20,8 +26,8 @@ const SignIn = () => {
     setInputs({ ...Inputs, [name]: value })
   }
 
-  const url = env.REACT_APP_BASE_URL+"/api/v1/signin";
-console.log(url);
+  const url = env.REACT_APP_BASE_URL + "/api/v1/signin";
+  
 
   const Submit = async (e) => {
     e.preventDefault();
