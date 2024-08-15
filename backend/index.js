@@ -12,8 +12,10 @@ const app = express();
 
 // List of allowed origins
 const allowedOrigins = [
-    // '*',
+    '*',
     'https://todolist-frontend-olive.vercel.app',
+    'https://todolist-frontend-git-main-coremachs-projects.vercel.app/',
+    'https://todolist-frontend-e3087g69g-coremachs-projects.vercel.app/',
     'http://localhost:3000',
     "https://deploy-mern-lwhq.vercel.app",
     'https://server-phi-ashy-63.vercel.app',
