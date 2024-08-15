@@ -14,7 +14,7 @@ const cors_pol ={
     methods:["POST","GET","DELETE","PUT"],
     credentials:true
 }
-app.use(cors());
+app.use(cors(cors_pol));
 
 app.use(express.json());
 
