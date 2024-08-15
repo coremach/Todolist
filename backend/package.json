@@ -16,5 +16,7 @@
     "express": "^4.19.2",
     "mongoose": "^8.5.1",
     "nodemon": "^3.1.4"
-  }
+  },
+  "proxy": "http://server-phi-ashy-63.vercel.app",
+
 }
