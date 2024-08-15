@@ -50,10 +50,7 @@ const Todo = () => {
                 toast.success(`${Inputs.title} is added successfully 💘`)
                 toast.error("Your task is not saved")
             }
-
         }
-
-
     }, [Array,Inputs]);
 
     const del = async (task_id) => {

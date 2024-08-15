@@ -5,7 +5,9 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { authActions } from "../../store/index";
-import env from "react-dotenv"
+import env from "react-dotenv";
+const url = env.REACT_APP_BASE_URL + "/api/v1/signin";
+
 console.log({ 
   server: process.env.REACT_APP_API_URL, 
   local: process.env.REACT_APP_BASE_URL, 
@@ -26,7 +28,6 @@ const SignIn = () => {
     setInputs({ ...Inputs, [name]: value })
   }
 
-  const url = env.REACT_APP_BASE_URL + "/api/v1/signin";
   
 
   const Submit = async (e) => {

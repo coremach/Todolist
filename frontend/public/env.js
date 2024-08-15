@@ -68,7 +68,7 @@ window.env = {
   "PyCharm Community Edition": "C:\\Program Files\\JetBrains\\PyCharm Community Edition 2023.1\\bin;",
   "REACT_APP_API_KEY": "your-api-key",
   "REACT_APP_BASE_PORT": "3000",
-  "REACT_APP_BASE_URL": "http://server-phi-ashy-63.vercel.app",
+  "REACT_APP_BASE_URL": "https://server-phi-ashy-63.vercel.app",
   "SESSIONNAME": "Console",
   "SystemDrive": "C:",
   "SystemRoot": "C:\\Windows",
