@@ -8,13 +8,6 @@ import { authActions } from "../../store/index";
 import env from "react-dotenv";
 const url = env.REACT_APP_BASE_URL + "/api/v1/signin";
 
-console.log({ 
-  local: process.env.REACT_APP_API_URL, 
-  server: process.env.REACT_APP_BASE_URL, 
-  port: process.env.REACT_APP_BASE_PORT,
-  url
-});
-
 const SignIn = () => {
   const dispatch = useDispatch()
   const history = useNavigate();
