@@ -30,8 +30,9 @@ router.post('/signin', async (req, res) => {
       }
   
       // Compare passwords
+      const ismatch = password === user.password ? true : false;
       const isMatch = await bcrypt.compare(password, user.password);
-      if (!isMatch) {
+      if (!ismatch) {
         console.error('Password does not match');
         return res.status(402).json({ message: 'Invalid password' });
       }
@@ -68,30 +69,6 @@ router.post("/register", async (req, res) => {
 });
 
 
-// Sign In
-// router.post('/signin', async (req,res)=>{
-//     try {
-//         const user = await User.findOne({email:req.body.email});
-//         if( !user){
-//             res.status(402).json({message:"Please Sign Up First"})
-//         }
-//         const isPassCorrect = bcrypt.compareSync(
-//             req.body.password,
-//             user.password
-//         );
-//         if(!isPassCorrect){
-//             res.status(401).json({message:"Email or Password Is Not Correct"})
-//         }
-//         const {password ,...others} = user._doc;
-//         // res.status(200).json({others})
-//         res.status(200).json({message:"Sign In Successfull",others})
-//         // console.log({password ,...others})
-
-//     } catch (error) {
-//         console.log(`Sign In error :${error}`)
-//         res.status(500).json({message:"Server error"})
-//     }
-// });
 
 
 module.exports = router;
