@@ -12,7 +12,7 @@ const app = express();
 
 // List of allowed origins
 const allowedOrigins = [
-    'http://localhost:3001',
+    'http://localhost:3000',
     "https://deploy-mern-lwhq.vercel.app",
     'https://server-phi-ashy-63.vercel.app',
 ];
