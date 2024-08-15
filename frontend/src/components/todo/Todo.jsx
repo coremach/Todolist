@@ -33,14 +33,14 @@ const Todo = () => {
         }
         else {
             if (id) {
-                await axios.post(`${env.REACT_APP_BASE_URL}+"/api/v2/addTask`, {
+                await axios.post(`${env.REACT_APP_BASE_URL}/api/v2/addTask`, {
                     title: Inputs.title,
                     body: Inputs.body,
                     id: id
                 })
-                    // .then((response) => {
-                    //     console.log(response);
-                    // })
+                // .then((response) => {
+                //     console.log(response);
+                // })
                 setInputs({ title: "", body: "" })
                 toast.success(`${Inputs.title} is added successfully 💘`)
             } else {
@@ -51,12 +51,12 @@ const Todo = () => {
                 toast.error("Your task is not saved")
             }
         }
-    }, [Array,Inputs]);
+    }, [Array, Inputs]);
 
     const del = async (task_id) => {
         if (id) {
             await axios
-                .delete(`${env.REACT_APP_BASE_URL}+"/api/v2/deleteTask/${task_id}`, {
+                .delete(`${env.REACT_APP_BASE_URL}/api/v2/deleteTask/${task_id}`, {
                     data: { id: id }
                 })
                 .then(() => {
@@ -89,6 +89,8 @@ const Todo = () => {
                 try {
                     const response = await axios.get(`${env.REACT_APP_BASE_URL}/api/v2/getTasks/${id}`);
                     setArray(response.data.list);
+                    // console.log(response.data.list);
+                    
                 } catch (error) {
                     console.error('Error fetching tasks:', error);
                 }
@@ -97,19 +99,6 @@ const Todo = () => {
 
         fetchTasks();
     }, [Submit]);
-
-    // useEffect(() => {
-    //     const fetch = async () => {
-    //         await axios
-    //             .get(`${env.REACT_APP_BASE_URL}+"/api/v2/getTasks/${id}`)
-    //             .then((response) => {
-    //                 setArray(response.data.list);
-    //             })
-    //             .catch(err => console.log(err))
-    //     }
-    //     fetch();
-    // }, [Submit]);
-
 
     return (
         <>
@@ -124,7 +113,7 @@ const Todo = () => {
                             id=""
                             placeholder='Title'
                             onClick={show}
-                            value={Inputs.title}
+                            value={Inputs.title || ""}
                             onChange={change} />
                         <textarea
                             className='my-2 p-2 todo-inputs'
@@ -132,7 +121,7 @@ const Todo = () => {
                             name="body"
                             id="textarea"
                             placeholder='Body'
-                            value={Inputs.body}
+                            value={Inputs.body || ""}
                             onChange={change} />
                     </div>
 
@@ -146,19 +135,17 @@ const Todo = () => {
                     <div className="container-fluid ">
                         <div className="row">
 
-                            {Array && Array.map((item, index) => (
-                                <>
-                                    <div className="d-flex justify-content-center m-3 my-2 " key={index} >
-                                        <TodoCards
-                                            item={item}
-                                            id={item._id}
-                                            del_id={del}
-                                            display={updateShow}
-                                            updateId={index}
-                                            toBeUpdate={update}
-                                        />
-                                    </div>
-                                </>
+                            {Array && Array.map((item) => (
+                                <div className="d-flex justify-content-center m-3 my-2" key={item._id}>
+                                    <TodoCards
+                                        item={item}
+                                        id={item._id} // Assuming item has a unique id
+                                        del_id={del}
+                                        display={updateShow}
+                                        updateId={item._id} // Assuming item has a unique id
+                                        toBeUpdate={update}
+                                    />
+                                </div>
                             ))}
                         </div>
                     </div>

@@ -49,7 +49,7 @@ const Navbar = () => {
                             <Link className="nav-link active px-2 btn-nav text-white" aria-current="page" to="/">Sign Out</Link>
                         </li>
                         <li className="nav-item mx-1" onClick={logout}>
-                            <img className="img-fluid mx-2 user-png" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s" alt="/" srcset="" />
+                            <img className="img-fluid mx-2 user-png" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtuphMb4mq-EcVWhMVT8FCkv5dqZGgvn_QiA&s" alt="/" srcSet="" />
                         </li>
 
                         </>}

@@ -26,7 +26,7 @@ const Update = ({ display, update, }) => {
   const Submit = async () => {
     if (id) {
       await axios
-        .put(`${env.REACT_APP_BASE_URL}+"/api/v2/updateTask/${update._id}`, {
+        .put(`${env.REACT_APP_BASE_URL}/api/v2/updateTask/${update._id}`, {
           data: {
             user_Id: id,
             task_Id: update._id,
@@ -57,14 +57,14 @@ const Update = ({ display, update, }) => {
         type="text"
         className="todo-inputs my-4 w-100 p-3"
         placeholder='Title'
-        value={Inputs.title}
+        value={Inputs.title || ""}
         name='title'
         onChange={change} />
 
       <textarea
         className='todo-inputs w-100 p-3'
         placeholder='Body'
-        value={Inputs.body}
+        value={Inputs.body || ""}
         name='body'
         onChange={change} />
       <button

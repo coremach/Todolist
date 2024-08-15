@@ -38,7 +38,7 @@ const TestSessionStorage = () => {
           placeholder='Type something...'
           name='text'
           onChange={change}
-          value={val.text}
+          value={val.text || " "}
 
         />        
         <button className='btn-signup ' type="submit" >Click</button>
